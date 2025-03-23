@@ -43,21 +43,26 @@
             padding: 100px 20px;
             background: linear-gradient(to right, purple, pink, orange);
             color: white;
-            position: relative;
+            text-align: center;
         }
-        header h1 {
+        .header-content {
             flex: 1;
             text-align: center;
         }
         .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 200px;
+            height: 250px;
+            border-radius: 15px;
             border: 5px solid white;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
             object-fit: cover;
-            position: absolute;
-            right: 20px;
+            margin-left: 20px;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
         section {
             padding: 50px 20px;
@@ -108,8 +113,12 @@
     </nav>
     
     <header>
-        <h1>Hi, I'm Kim</h1>
-        <img src="your-image.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="header-container">
+            <div class="header-content">
+                <h1>Hi, I'm Kim</h1>
+            </div>
+            <img src="your-image.jpg" alt="Profile Picture" class="profile-pic">
+        </div>
     </header>
     
     <section id="about">
@@ -151,10 +160,10 @@
     <section id="contact">
         <h2>Contact</h2>
         <ul>
-            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fas fa-code"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fas fa-database"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/kimberlycmorris" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/kmorr008" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://leetcode.com/u/cLYK9CYvnU/" target="_blank"><i class="fas fa-code"></i></a></li>
+            <li><a href="https://www.kaggle.com/kimmorris" target="_blank"><i class="fas fa-database"></i></a></li>
         </ul>
     </section>
 </body>
