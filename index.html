@@ -3,172 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kim's Portfolio</title>
+    <title>Kimberly Morris — CS Education & Consulting</title>
+    <meta name="description" content="CS educator, program leader, and curriculum designer specializing in learning systems that work — in classrooms, organizations, and institutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: white;
-            color: #333;
-        }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: linear-gradient(to right, purple, pink, orange);
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 20px;
-            background: linear-gradient(to right, purple, pink, orange);
-            color: white;
-            text-align: center;
-        }
-        .header-content {
-            flex: 1;
-            text-align: center;
-        }
-        .profile-pic {
-            width: 200px;
-            height: 250px;
-            border-radius: 15px;
-            border: 5px solid white;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            object-fit: cover;
-            margin-left: 20px;
-        }
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-        section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        .project-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .project-tile {
-            background: #f4f4f4;
-            border-radius: 10px;
-            width: 300px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .project-tile img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        #contact ul {
-            list-style: none;
-            padding: 0;
-        }
-        #contact ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        #contact ul li a {
-            text-decoration: none;
-            color: purple;
-            font-weight: bold;
-            font-size: 24px;
-        }
-    </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+
+    <!-- ============================================================
+         NAV
+    ============================================================ -->
+    <nav class="site-nav" id="site-nav">
+        <div class="nav-inner">
+            <a href="#about" class="nav-logo">Kimberly Morris</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work &amp; Impact</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-    
-    <header>
-        <div class="header-container">
-            <div class="header-content">
-                <h1>Hi, I'm Kim</h1>
+
+    <!-- ============================================================
+         ABOUT / HERO
+    ============================================================ -->
+    <section id="about" class="section hero">
+        <div class="container hero-layout">
+            <div class="hero-text">
+                <p class="eyebrow">CS Education &amp; Program Leadership</p>
+                <h1>I design learning systems that work.</h1>
+                <p class="brand-statement">I'm a computer science educator and program leader who brings rigorous instructional design to classrooms, organizations, and institutions that need to build technical capacity — and the people who deliver it.</p>
+                <div class="cta-group">
+                    <a href="#work" class="cta cta-primary">See the work</a>
+                    <a href="#services" class="cta cta-secondary">Explore services</a>
+                    <a href="#contact" class="cta cta-secondary">Get in touch</a>
+                </div>
+                <div class="audience-tags">
+                    <span>Universities &amp; Colleges</span>
+                    <span>K–12 Districts</span>
+                    <span>Corporate L&amp;D</span>
+                    <span>EdTech</span>
+                    <span>Consulting</span>
+                </div>
             </div>
-            <img src="kim.jpg" alt="Profile Picture" class="profile-pic">
-        </div>
-    </header>
-    
-    <section id="about">
-        <h2>Get to Know Me</h2>
-        <p> I am an educator, a leader, a collaborator, and an innovator. </p>
-        <p>View my <a href="https://docs.google.com/document/d/1e-wnibXMuL8hoxWMqWUuTCvrOrVc2R4cUSUg71VValM/edit?usp=sharing"> resume</a> to learn more. </p>
-    </section>
-    
-    <section id="projects">
-        <h2>Look What I Can Do</h2>
-        <div class="project-list">
-            <div class="project-tile">
-                <img src="project1.jpg" alt="Project 1">
-                <h3>Project 1</h3>
-                <p>Description of project 1.</p>
-            </div>
-            <div class="project-tile">
-                <img src="project2.jpg" alt="Project 2">
-                <h3>Project 2</h3>
-                <p>Description of project 2.</p>
-            </div>
-            <div class="project-tile">
-                <img src="project3.jpg" alt="Project 3">
-                <h3>Project 3</h3>
-                <p>Description of project 3.</p>
-            </div>
-            <div class="project-tile">
-                <img src="project4.jpg" alt="Project 4">
-                <h3>Project 4</h3>
-                <p>Description of project 4.</p>
+            <div class="hero-image">
+                <img src="kim.jpg" alt="Kimberly Morris" class="profile-pic">
             </div>
         </div>
+
+        <div class="container why-block">
+            <h2>My Why</h2>
+            <p>I've spent my career at the intersection of technical knowledge and teaching — a combination that's rarer than people think. Most CS professionals can't teach. Most educators can't go deep on the content. I can do both, and I've built programs, trained teachers, and designed curriculum to prove it. What drives me is the belief that learning systems — whether a course, a department, or a training program — can be intentionally designed to actually work. That's what I do.</p>
+        </div>
     </section>
-    
-    <section id="education">
-        <h2>Check Out My Cred</h2>
-        <p> <!-- Add education and experience details here --> </p>
+
+    <!-- ============================================================
+         WORK & IMPACT
+    ============================================================ -->
+    <section id="work" class="section alt-bg">
+        <div class="container">
+            <p class="eyebrow">Work &amp; Impact</p>
+            <h2>What the work looks like</h2>
+            <p class="section-intro">Most of my best work happened in classrooms, department meetings, and professional development sessions — not on GitHub. Here are a few stories that show what I build and how I think.</p>
+
+            <div class="case-study-grid">
+
+                <article class="case-study">
+                    <div class="case-tag">Curriculum Design</div>
+                    <h3>Building a CS Pathway from Scratch</h3>
+                    <p>When San Diego Unified School District needed to stand up a coherent K–12 CS pathway, there was no existing curriculum, no trained teachers, and no clear scope and sequence. I led the design process end-to-end — mapping standards, developing courses, and building the teacher support structures to sustain it.</p>
+                    <p class="case-outcome"><strong>Outcome:</strong> A multi-year, standards-aligned CS pathway now serves hundreds of students annually, with a teacher training model that didn't require hiring new staff.</p>
+                </article>
+
+                <article class="case-study">
+                    <div class="case-tag">Program Leadership</div>
+                    <h3>Turning Around a Struggling Department</h3>
+                    <p>I inherited a CS program with inconsistent instruction, low enrollment, and no clear identity. Over two years, I redesigned the course offerings, rebuilt the instructional culture, and repositioned the program to serve a broader range of students — not just those already planning to major in CS.</p>
+                    <p class="case-outcome"><strong>Outcome:</strong> Enrollment grew significantly. More importantly, the program became one students wanted to be in — not one they stumbled into.</p>
+                </article>
+
+                <article class="case-study">
+                    <div class="case-tag">Workforce &amp; Adult Learning</div>
+                    <h3>Training Teachers to Teach CS</h3>
+                    <p>Most professional development for CS teachers is either too technical or too surface-level. I designed and facilitated a training model that meets teachers where they are — building both content knowledge and pedagogical confidence simultaneously.</p>
+                    <p class="case-outcome"><strong>Outcome:</strong> Participants consistently reported feeling ready to teach the content, not just aware of it — a meaningful difference for adult learners with high stakes.</p>
+                </article>
+
+            </div>
+        </div>
     </section>
-    
-    <section id="contact">
-        <h2>Let's Connect</h2>
-        <p>kmorr008@gmail.com</p>
-        <ul>
-            <li><a href="https://www.linkedin.com/in/kimberlycmorris" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://github.com/kmorr008" target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://leetcode.com/u/cLYK9CYvnU/" target="_blank"><i class="fas fa-code"></i></a></li>
-            <li><a href="https://www.kaggle.com/kimmorris" target="_blank"><i class="fas fa-database"></i></a></li>
-        </ul>
+
+    <!-- ============================================================
+         PHILOSOPHY
+    ============================================================ -->
+    <section id="philosophy" class="section">
+        <div class="container">
+            <p class="eyebrow">Teaching &amp; Leadership Philosophy</p>
+            <h2>How I think about learning</h2>
+
+            <div class="philosophy-pillars">
+
+                <div class="philosophy-pillar">
+                    <h3>Learning is a design problem.</h3>
+                    <p>Good teaching isn't improvised — it's engineered. Every course, unit, and lesson I build starts with a clear picture of what learners should be able to do, then works backwards to design the experiences that get them there. This applies equally to a high school CS classroom and a corporate onboarding program.</p>
+                </div>
+
+                <div class="philosophy-pillar">
+                    <h3>Context shapes everything.</h3>
+                    <p>I don't believe in generic curriculum or one-size-fits-all training. Effective learning design requires understanding who is in the room, what they already know, what they're afraid of, and what success actually looks like for them. My job is to make that visible — and then design for it.</p>
+                </div>
+
+                <div class="philosophy-pillar">
+                    <h3>Leaders build systems, not dependencies.</h3>
+                    <p>My goal as a program leader is always to build something that outlasts me. That means investing in teachers, documenting decisions, and creating structures that hold even when key people leave. Sustainable programs are designed, not inherited.</p>
+                </div>
+
+            </div>
+        </div>
     </section>
+
+    <!-- ============================================================
+         SERVICES
+    ============================================================ -->
+    <section id="services" class="section alt-bg">
+        <div class="container">
+            <p class="eyebrow">Services</p>
+            <h2>How I can help your organization</h2>
+            <p class="section-intro">I work with schools, districts, universities, and organizations that need to build technical learning capacity. Here's what that looks like in practice.</p>
+
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-icon">&#127891;</div>
+                    <h3>Curriculum Design &amp; Development</h3>
+                    <p>Standards-aligned course design, scope and sequence development, and instructional materials for K–12 and higher education CS programs.</p>
+                    <ul>
+                        <li>Course and unit design</li>
+                        <li>Scope &amp; sequence mapping</li>
+                        <li>Standards alignment (CSTA, AP, state frameworks)</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#128200;</div>
+                    <h3>Program &amp; Department Leadership</h3>
+                    <p>Strategic support for CS programs navigating growth, restructuring, or a need to expand their reach and impact.</p>
+                    <ul>
+                        <li>Program audits and gap analysis</li>
+                        <li>Enrollment and retention strategy</li>
+                        <li>Department culture and instructional coherence</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#128104;&#8205;&#128187;</div>
+                    <h3>Workforce &amp; Adult Learning</h3>
+                    <p>Technical training and professional development designed for adult learners — including educators, corporate teams, and non-technical staff building CS literacy.</p>
+                    <ul>
+                        <li>Teacher professional development</li>
+                        <li>Corporate L&amp;D program design</li>
+                        <li>Technical onboarding curriculum</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#127897;&#65039;</div>
+                    <h3>Speaking &amp; Workshops</h3>
+                    <p>Keynotes, workshops, and panel contributions on CS education, equity in technical learning, and instructional design for technical content.</p>
+                    <ul>
+                        <li>Conference keynotes and panels</li>
+                        <li>Half-day and full-day workshops</li>
+                        <li>Professional development facilitation</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="services-cta">
+                <p>Ready to talk about your program?</p>
+                <a href="#contact" class="cta cta-primary">Start a conversation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         RESUME
+    ============================================================ -->
+    <section id="resume" class="section">
+        <div class="container">
+            <p class="eyebrow">Resume &amp; Credentials</p>
+            <h2>The professional record</h2>
+
+            <div class="credentials-highlights">
+
+                <div class="credential">
+                    <h3>Education</h3>
+                    <p>MS in Engineering with a focus in Data Science<br>UC Riverside</p>
+                    <p>MA in Education, Society, Culture<br>UC Riverside</p>
+                    <p>BS in Mathematics<br>UC Riverside</p>
+                </div>
+
+                <div class="credential">
+                    <h3>Current Role</h3>
+                    <p>Computer Science Educator<br>San Diego Unified School District<br>San Diego, CA &middot; 2020–Present</p>
+                </div>
+
+                <div class="credential">
+                    <h3>Areas of Expertise</h3>
+                    <ul>
+                        <li>CS Curriculum &amp; Instruction</li>
+                        <li>Program Leadership</li>
+                        <li>Teacher Professional Development</li>
+                        <li>Workforce &amp; Adult Learning</li>
+                        <li>Educational Technology Integration</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <a href="https://docs.google.com/document/d/1e-wnibXMuL8hoxWMqWUuTCvrOrVc2R4cUSUg71VValM/edit?usp=sharing"
+               target="_blank"
+               rel="noopener"
+               class="cta cta-primary">View Full Resume</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section id="contact" class="section alt-bg">
+        <div class="container">
+            <p class="eyebrow">Contact</p>
+            <h2>Let's talk about what you're building.</h2>
+            <p class="section-intro">I'm currently open to university teaching roles, K–12 curriculum and instruction opportunities, corporate L&amp;D engagements, EdTech and product roles, and consulting work. If any of those sound like you, reach out.</p>
+
+            <div class="contact-options">
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:kmorr008@gmail.com">kmorr008@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/kimberlycmorris" target="_blank" rel="noopener">linkedin.com/in/kimberlycmorris</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Kimberly Morris. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
