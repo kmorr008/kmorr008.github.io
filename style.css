@@ -484,8 +484,12 @@ section[id] {
 .badges-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 48px;
     align-items: flex-start;
+}
+
+.badges-row > div {
+    padding: 12px;
 }
 
 /* =========================
