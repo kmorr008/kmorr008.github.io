@@ -466,6 +466,28 @@ section[id] {
     line-height: 1.7;
 }
 
+.certifications-section {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin: 2.5rem 0 2rem;
+}
+
+.certifications-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+}
+
 /* =========================
    CONTACT
 ========================= */
