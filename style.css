@@ -39,7 +39,18 @@ body {
 }
 
 a {
-    color: inherit;
+    color: var(--purple);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover,
+a:focus {
+    color: var(--purple-light);
+}
+
+.cta {
     text-decoration: none;
 }
 
