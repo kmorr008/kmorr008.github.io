@@ -26,39 +26,43 @@
     }
 
     body {
-      background: #E8E8F0;
+      background: #E4E4EE;
       font-family: 'DM Sans', sans-serif;
       color: var(--navy);
       min-height: 100vh;
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 2.5rem 1rem;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1rem 3rem;
     }
 
+    /* ── FLYER WRAPPER ── */
     .flyer {
-      width: 780px;
+      width: 820px;
       max-width: 100%;
       background: var(--white);
-      box-shadow: 0 12px 60px rgba(18,21,61,0.14), 0 2px 8px rgba(0,0,0,0.06);
-      animation: rise 0.7s cubic-bezier(.22,.68,0,1.2) both;
+      box-shadow: 0 16px 64px rgba(18,21,61,0.16), 0 2px 8px rgba(0,0,0,0.06);
+      animation: rise 0.65s cubic-bezier(.22,.68,0,1.15) both;
     }
 
     @keyframes rise {
-      from { opacity: 0; transform: translateY(28px); }
+      from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── TOP BAR ─────────────────────────── */
-    .top-bar {
-      height: 5px;
-      background: linear-gradient(90deg, var(--navy) 0%, var(--violet) 50%, var(--orange) 100%);
+    /* ── TOP STRIPE ── */
+    .top-stripe {
+      height: 6px;
+      display: flex;
     }
+    .top-stripe .s1 { flex: 1;    background: var(--navy); }
+    .top-stripe .s2 { flex: 1.2;  background: var(--violet); }
+    .top-stripe .s3 { flex: 0.8;  background: var(--orange); }
 
-    /* ── HEADER ──────────────────────────── */
+    /* ── HEADER ── */
     .header {
       background: var(--navy);
-      padding: 2.8rem 3rem 2.4rem;
+      padding: 3rem 3.5rem 2.6rem;
       position: relative;
       overflow: hidden;
     }
@@ -66,39 +70,39 @@
     .header::before {
       content: '';
       position: absolute;
-      top: -60px; right: -60px;
-      width: 240px; height: 240px;
+      top: -70px; right: -70px;
+      width: 280px; height: 280px;
       border-radius: 50%;
-      background: rgba(91,33,182,0.15);
+      background: rgba(91,33,182,0.18);
       pointer-events: none;
     }
 
     .header::after {
       content: '';
       position: absolute;
-      bottom: -80px; left: -40px;
-      width: 200px; height: 200px;
+      bottom: -60px; left: -40px;
+      width: 180px; height: 180px;
       border-radius: 50%;
-      background: rgba(194,65,12,0.08);
+      background: rgba(194,65,12,0.10);
       pointer-events: none;
     }
 
     .eyebrow {
       font-size: 0.67rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      font-weight: 700;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--navy-md);
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
     }
 
     .header h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
+      font-size: 2.9rem;
       font-weight: 700;
       color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 0.9rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
 
     .header h1 em {
@@ -106,13 +110,13 @@
       color: var(--violet-md);
     }
 
-    .tagline {
+    .header-desc {
       font-size: 0.92rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.7;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.75;
       max-width: 540px;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.8rem;
     }
 
     .author-chip {
@@ -120,9 +124,9 @@
       align-items: center;
       gap: 0.5rem;
       background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.16);
       border-radius: 100px;
-      padding: 0.4rem 1rem;
+      padding: 0.42rem 1.1rem;
     }
 
     .author-chip .dot {
@@ -135,47 +139,47 @@
     .author-chip span {
       font-size: 0.75rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.82);
       letter-spacing: 0.03em;
     }
 
-    /* ── ACCENT STRIPE ───────────────────── */
+    /* ── ACCENT STRIPE ── */
     .accent-stripe {
       display: flex;
       height: 5px;
     }
-    .accent-stripe .a { flex: 1; background: var(--orange); }
-    .accent-stripe .b { flex: 1.5; background: var(--violet); }
-    .accent-stripe .c { flex: 2; background: var(--navy); }
+    .accent-stripe .a { flex: 1;   background: var(--orange); }
+    .accent-stripe .b { flex: 1.4; background: var(--violet); }
+    .accent-stripe .c { flex: 2;   background: var(--navy); }
 
-    /* ── INTRO BAND ──────────────────────── */
+    /* ── INTRO BAND ── */
     .intro-band {
       background: var(--gray-lt);
-      padding: 1.4rem 3rem;
+      padding: 1.5rem 3.5rem;
       display: flex;
       gap: 2.5rem;
       align-items: flex-start;
       border-bottom: 1px solid var(--gray-rule);
     }
 
-    .intro-stat {
+    .stat {
       text-align: center;
       flex-shrink: 0;
     }
 
-    .intro-stat .num {
+    .stat .num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       font-weight: 700;
       color: var(--violet);
       line-height: 1;
     }
 
-    .intro-stat .lbl {
-      font-size: 0.7rem;
-      font-weight: 600;
+    .stat .lbl {
+      font-size: 0.66rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--gray-mid);
       margin-top: 0.2rem;
     }
@@ -189,29 +193,81 @@
 
     .intro-text {
       font-size: 0.88rem;
-      line-height: 1.75;
+      line-height: 1.78;
       color: var(--charcoal);
     }
 
     .intro-text strong { color: var(--violet); }
 
-    /* ── BODY ────────────────────────────── */
-    .body { padding: 2.2rem 3rem 1.6rem; }
+    /* ── BODY ── */
+    .body { padding: 2.2rem 3.5rem 1.8rem; }
 
     .section-label {
-      font-size: 0.65rem;
+      font-size: 0.64rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--orange);
       margin-bottom: 1rem;
     }
 
-    /* ── RESOURCE CARDS ──────────────────── */
+    /* ── FRAMEWORK OVERVIEW ── */
+    .framework-overview {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
+    }
+
+    .framework-card {
+      background: var(--navy-lt);
+      border-radius: 4px;
+      padding: 1rem 1.1rem;
+      border-top: 3px solid var(--navy);
+    }
+
+    .framework-card.violet { border-top-color: var(--violet); background: var(--violet-lt); }
+    .framework-card.orange { border-top-color: var(--orange); background: var(--orange-lt); }
+
+    .framework-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .framework-card.violet h4 { color: var(--violet); }
+    .framework-card.orange h4 { color: var(--orange); }
+
+    .framework-card p {
+      font-size: 0.78rem;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    /* ── RESOURCE GROUP LABEL ── */
+    .resource-group-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .group-educator { background: var(--orange-lt); color: var(--orange); }
+    .group-student  { background: var(--violet-lt); color: var(--violet); }
+    .group-bonus    { background: var(--navy-lt);   color: var(--navy); }
+
+    /* ── RESOURCE CARDS ── */
     .resources {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 0.55rem;
       margin-bottom: 2rem;
     }
 
@@ -228,7 +284,7 @@
 
     .resource-card:hover {
       border-color: var(--violet-md);
-      box-shadow: 0 3px 16px rgba(91,33,182,0.1);
+      box-shadow: 0 3px 18px rgba(91,33,182,0.1);
       transform: translateX(3px);
     }
 
@@ -240,9 +296,10 @@
       align-items: center;
       justify-content: center;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       font-weight: 700;
       color: var(--navy-md);
+      transition: background 0.2s, color 0.2s;
     }
 
     .resource-card:hover .card-num {
@@ -252,7 +309,7 @@
 
     .card-body {
       flex: 1;
-      padding: 0.85rem 1.1rem;
+      padding: 0.8rem 1.1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -260,54 +317,47 @@
     }
 
     .card-info h3 {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--navy);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.18rem;
     }
 
     .card-info p {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--gray-mid);
       line-height: 1.5;
     }
 
-    .card-badge {
+    .card-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.45rem;
       flex-shrink: 0;
-      font-size: 0.65rem;
-      font-weight: 600;
+    }
+
+    .badge {
+      font-size: 0.62rem;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
+      padding: 0.18rem 0.55rem;
       border-radius: 3px;
+      white-space: nowrap;
     }
 
-    .badge-student {
-      background: var(--violet-lt);
-      color: var(--violet);
-      border: 1px solid var(--violet-md);
-    }
-
-    .badge-educator {
-      background: var(--orange-lt);
-      color: var(--orange);
-      border: 1px solid var(--orange-md);
-    }
-
-    .badge-bonus {
-      background: var(--navy-lt);
-      color: var(--navy);
-      border: 1px solid var(--navy-md);
-    }
+    .badge-educator { background: var(--orange-lt); color: var(--orange); border: 1px solid var(--orange-md); }
+    .badge-student  { background: var(--violet-lt); color: var(--violet); border: 1px solid var(--violet-md); }
+    .badge-bonus    { background: var(--navy-lt);   color: var(--navy);   border: 1px solid var(--navy-md); }
 
     .card-cta {
-      flex-shrink: 0;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
       color: var(--violet);
       border: 1px solid var(--violet-md);
       border-radius: 3px;
-      padding: 0.35rem 0.85rem;
+      padding: 0.3rem 0.8rem;
       white-space: nowrap;
       letter-spacing: 0.04em;
       transition: background 0.15s, color 0.15s;
@@ -319,58 +369,36 @@
       border-color: var(--violet);
     }
 
-    .card-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.5rem;
-      flex-shrink: 0;
-    }
-
-    /* ── DIVIDER ─────────────────────────── */
+    /* ── DIVIDER ── */
     .section-divider {
       height: 1px;
       background: var(--gray-rule);
-      margin: 1.8rem 0;
+      margin: 1.6rem 0;
     }
 
-    /* ── AUDIENCE PILLS ──────────────────── */
+    /* ── AUDIENCE PILLS ── */
     .audience-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.45rem;
       margin-bottom: 2rem;
     }
 
     .pill {
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      padding: 0.38rem 0.9rem;
+      padding: 0.36rem 0.88rem;
       border-radius: 100px;
       letter-spacing: 0.02em;
     }
 
-    .pill-navy {
-      background: var(--navy-lt);
-      color: var(--navy);
-      border: 1px solid var(--navy-md);
-    }
+    .pill-navy   { background: var(--navy-lt);   color: var(--navy);   border: 1px solid var(--navy-md); }
+    .pill-violet { background: var(--violet-lt); color: var(--violet); border: 1px solid var(--violet-md); }
+    .pill-orange { background: var(--orange-lt); color: var(--orange); border: 1px solid var(--orange-md); }
 
-    .pill-violet {
-      background: var(--violet-lt);
-      color: var(--violet);
-      border: 1px solid var(--violet-md);
-    }
-
-    .pill-orange {
-      background: var(--orange-lt);
-      color: var(--orange);
-      border: 1px solid var(--orange-md);
-    }
-
-    /* ── CTA BLOCK ───────────────────────── */
+    /* ── CTA BLOCK ── */
     .cta-block {
-      background: linear-gradient(120deg, var(--navy) 0%, #1E2260 100%);
+      background: linear-gradient(120deg, var(--navy) 0%, #1C1F5A 100%);
       border-radius: 6px;
       padding: 1.6rem 2rem;
       display: flex;
@@ -383,7 +411,7 @@
 
     .cta-block h4 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--white);
       margin-bottom: 0.25rem;
@@ -391,7 +419,7 @@
 
     .cta-block p {
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.58);
     }
 
     .cta-btn {
@@ -400,7 +428,7 @@
       font-size: 0.8rem;
       font-weight: 600;
       text-decoration: none;
-      padding: 0.7rem 1.5rem;
+      padding: 0.72rem 1.5rem;
       border-radius: 4px;
       white-space: nowrap;
       letter-spacing: 0.04em;
@@ -410,28 +438,28 @@
 
     .cta-btn:hover { background: #A33409; }
 
-    /* ── AI CREDIT ───────────────────────── */
+    /* ── AI CREDIT ── */
     .ai-credit {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
       background: var(--violet-lt);
       border: 1px solid var(--violet-md);
       border-radius: 4px;
-      padding: 0.65rem 1rem;
-      margin-bottom: 0;
+      padding: 0.7rem 1rem;
     }
 
-    .ai-credit .badge {
-      font-size: 0.67rem;
+    .ai-badge {
+      font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--white);
       background: var(--violet);
       border-radius: 3px;
-      padding: 0.18rem 0.5rem;
+      padding: 0.2rem 0.55rem;
       flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .ai-credit p {
@@ -440,10 +468,10 @@
       line-height: 1.5;
     }
 
-    /* ── FOOTER ──────────────────────────── */
+    /* ── FOOTER ── */
     .footer {
       border-top: 1px solid var(--gray-rule);
-      padding: 1.1rem 3rem;
+      padding: 1.1rem 3.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -454,14 +482,14 @@
     .footer-left {
       font-size: 0.72rem;
       color: var(--gray-mid);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .footer-left strong { color: var(--navy); font-weight: 600; }
 
     .footer-links {
       display: flex;
-      gap: 1rem;
+      gap: 1.1rem;
     }
 
     .footer-links a {
@@ -475,36 +503,42 @@
 
     .footer-links a:hover { color: var(--orange); }
 
-    .bottom-bar {
-      height: 4px;
-      background: linear-gradient(90deg, var(--orange) 0%, var(--violet) 50%, var(--navy) 100%);
+    /* ── BOTTOM STRIPE ── */
+    .bottom-stripe {
+      height: 5px;
+      display: flex;
     }
+    .bottom-stripe .s1 { flex: 1;   background: var(--orange); }
+    .bottom-stripe .s2 { flex: 1.2; background: var(--violet); }
+    .bottom-stripe .s3 { flex: 2;   background: var(--navy); }
 
-    /* ── RESPONSIVE ──────────────────────── */
-    @media (max-width: 600px) {
+    /* ── RESPONSIVE ── */
+    @media (max-width: 620px) {
       .header, .body, .footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       .intro-band { padding: 1.2rem 1.5rem; flex-direction: column; gap: 1rem; }
       .intro-divider { display: none; }
-      .header h1 { font-size: 1.9rem; }
+      .header h1 { font-size: 2.1rem; }
+      .framework-overview { grid-template-columns: 1fr; }
       .card-cta { display: none; }
-      .card-badge { display: none; }
+      .badge { display: none; }
     }
   </style>
 </head>
 <body>
   <div class="flyer">
-    <div class="top-bar"></div>
+
+    <div class="top-stripe"><div class="s1"></div><div class="s2"></div><div class="s3"></div></div>
 
     <!-- HEADER -->
     <div class="header">
-      <div class="eyebrow">Free CS Educator Resource Bundle &nbsp;·&nbsp; Any CS Course &nbsp;·&nbsp; Any Language</div>
+      <div class="eyebrow">Free CS Educator Resource Bundle &nbsp;·&nbsp; Any Language &nbsp;·&nbsp; Any Course Level</div>
       <h1>AI-Assisted<br/><em>Agile Framework</em><br/>for CS Projects</h1>
-      <p class="tagline">
+      <p class="header-desc">
         A complete, classroom-tested project framework built in partnership with ICT professionals — giving every CS student an authentic software development experience while making process-based assessment genuinely AI-proof.
       </p>
       <div class="author-chip">
         <div class="dot"></div>
-        <span>Kim Morris &nbsp;·&nbsp; San Diego Unified &nbsp;·&nbsp; San Diego Community College District &nbsp;·&nbsp; CCTE</span>
+        <span>Kim Morris &nbsp;·&nbsp; CS Educator &amp; AI Literacy Leader &nbsp;·&nbsp; San Diego Unified</span>
       </div>
     </div>
 
@@ -512,12 +546,12 @@
 
     <!-- INTRO BAND -->
     <div class="intro-band">
-      <div class="intro-stat">
+      <div class="stat">
         <div class="num">9</div>
         <div class="lbl">Resources</div>
       </div>
       <div class="intro-divider"></div>
-      <div class="intro-stat">
+      <div class="stat">
         <div class="num">Free</div>
         <div class="lbl">Always</div>
       </div>
@@ -530,131 +564,66 @@
     <!-- BODY -->
     <div class="body">
 
-      <div class="section-label">The Bundle &nbsp;—&nbsp; 9 Resources</div>
+      <!-- WHAT IT IS -->
+      <div class="section-label">What This Framework Does</div>
+      <div class="framework-overview">
+        <div class="framework-card">
+          <h4>Solves the Pacing Problem</h4>
+          <p>Sprint cycles build in intermediate accountability. Consistent work isn't just encouraged — it's structurally required.</p>
+        </div>
+        <div class="framework-card violet">
+          <h4>AI-Proof Assessment</h4>
+          <p>Students are graded on their development process — daily journals, reflections, commits, and feedback. That process has to be lived.</p>
+        </div>
+        <div class="framework-card orange">
+          <h4>Authentic Industry Practice</h4>
+          <p>Mirrors real agile software development. Students plan before they build, iterate each sprint, and document like developers.</p>
+        </div>
+      </div>
 
+      <div class="section-divider"></div>
+
+      <!-- EDUCATOR RESOURCES -->
+      <div class="section-label">The Bundle &nbsp;—&nbsp; Educator Resources</div>
       <div class="resources">
 
-        <a class="resource-card" href="#" target="_blank">
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
           <div class="card-num">01</div>
           <div class="card-body">
             <div class="card-info">
               <h3>Educator Guide</h3>
-              <p>The full framework explained — philosophy, facilitation practices, sprint review protocols, and adaptation guidance for any CS course.</p>
+              <p>The full framework explained — philosophy, facilitation practices, sprint review protocols, adaptation guidance, and a getting started sequence.</p>
             </div>
             <div class="card-right">
-              <span class="card-badge badge-educator">Educator</span>
+              <span class="badge badge-educator">Educator</span>
               <span class="card-cta">Open →</span>
             </div>
           </div>
         </a>
 
-        <a class="resource-card" href="#" target="_blank">
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
           <div class="card-num">02</div>
           <div class="card-body">
             <div class="card-info">
-              <h3>Student Planning Guide</h3>
-              <p>A structured guide that walks students from idea to sprint plan — including a ready-to-use AI prompt that keeps students thinking, not outsourcing.</p>
+              <h3>Sample Pacing Guide</h3>
+              <p>A day-by-day structure for 45-minute periods across four weeks, with adaptation notes for block schedules, shorter projects, and team settings.</p>
             </div>
             <div class="card-right">
-              <span class="card-badge badge-student">Student</span>
+              <span class="badge badge-educator">Educator</span>
               <span class="card-cta">Open →</span>
             </div>
           </div>
         </a>
 
-        <a class="resource-card" href="#" target="_blank">
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
           <div class="card-num">03</div>
           <div class="card-body">
             <div class="card-info">
-              <h3>Sprint Journal</h3>
-              <p>The heart of the framework. A daily slide deck students use every class period — logging work, errors, testing, reflections, and feedback across all four sprints.</p>
-            </div>
-            <div class="card-right">
-              <span class="card-badge badge-student">Student</span>
-              <span class="card-cta">Open →</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="resource-card" href="#" target="_blank">
-          <div class="card-num">04</div>
-          <div class="card-body">
-            <div class="card-info">
-              <h3>Sprint Grading Rubric</h3>
-              <p>A four-point, four-category rubric that assesses development process — not final code quality. Grades are earned sprint by sprint and cannot be made up later.</p>
-            </div>
-            <div class="card-right">
-              <span class="card-badge badge-student">Student</span>
-              <span class="card-cta">Open →</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="resource-card" href="#" target="_blank">
-          <div class="card-num">05</div>
-          <div class="card-body">
-            <div class="card-info">
-              <h3>Sample Pacing Guide</h3>
-              <p>A day-by-day pacing structure for 45-minute periods across four weeks — with adaptation notes for block schedules, shorter projects, and team settings.</p>
-            </div>
-            <div class="card-right">
-              <span class="card-badge badge-educator">Educator</span>
-              <span class="card-cta">Open →</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="resource-card" href="#" target="_blank">
-          <div class="card-num">06</div>
-          <div class="card-body">
-            <div class="card-info">
               <h3>Skeleton Slide Deck</h3>
-              <p>A minimal, ready-to-project slide deck covering every day of the project — standup prompts, build day slides, and the full sprint review feedback protocol.</p>
+              <p>Ready-to-project facilitation slides for every day of the project — standup prompts, build day slides, and the full sprint review feedback protocol.</p>
             </div>
             <div class="card-right">
-              <span class="card-badge badge-educator">Educator</span>
-              <span class="card-cta">Open →</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="resource-card" href="#" target="_blank">
-          <div class="card-num">07</div>
-          <div class="card-body">
-            <div class="card-info">
-              <h3>Team Facilitation Guide</h3>
-              <p>Everything teachers need to run this as a collaborative team project — cooperative learning context, ICT-aligned student roles, standup protocols, and sprint review structure for teams.</p>
-            </div>
-            <div class="card-right">
-              <span class="card-badge badge-educator">Educator</span>
-              <span class="card-cta">Open →</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="resource-card" href="#" target="_blank">
-          <div class="card-num">08</div>
-          <div class="card-body">
-            <div class="card-info">
-              <h3>Team Sprint Journal</h3>
-              <p>A team version of the Sprint Journal with individual accountability slides per team member, sprint planning meeting templates, and team reflection sections.</p>
-            </div>
-            <div class="card-right">
-              <span class="card-badge badge-student">Student</span>
-              <span class="card-cta">Open →</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="resource-card" href="#" target="_blank">
-          <div class="card-num">09</div>
-          <div class="card-body">
-            <div class="card-info">
-              <h3>Team Agreement Template</h3>
-              <p>A norm-setting document teams complete before Sprint 0 begins — roles, decision-making process, communication agreements, and signatures.</p>
-            </div>
-            <div class="card-right">
-              <span class="card-badge badge-bonus">Bonus</span>
+              <span class="badge badge-educator">Educator</span>
               <span class="card-cta">Open →</span>
             </div>
           </div>
@@ -662,6 +631,105 @@
 
       </div>
 
+      <!-- STUDENT RESOURCES -->
+      <div class="section-label">The Bundle &nbsp;—&nbsp; Student Resources</div>
+      <div class="resources">
+
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
+          <div class="card-num">04</div>
+          <div class="card-body">
+            <div class="card-info">
+              <h3>Student Planning Guide</h3>
+              <p>A structured pre-build guide that walks students from idea to sprint plan — including a ready-to-use AI prompt that keeps students thinking, not outsourcing.</p>
+            </div>
+            <div class="card-right">
+              <span class="badge badge-student">Student</span>
+              <span class="card-cta">Open →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
+          <div class="card-num">05</div>
+          <div class="card-body">
+            <div class="card-info">
+              <h3>Sprint Journal</h3>
+              <p>The heart of the framework. A daily slide deck students use every class period — logging work, errors, testing, reflections, and feedback across all four sprints.</p>
+            </div>
+            <div class="card-right">
+              <span class="badge badge-student">Student</span>
+              <span class="card-cta">Open →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
+          <div class="card-num">06</div>
+          <div class="card-body">
+            <div class="card-info">
+              <h3>Sprint Grading Rubric</h3>
+              <p>A four-point, four-category rubric that assesses the development process — not final code quality. Designed to be shared with students from day one.</p>
+            </div>
+            <div class="card-right">
+              <span class="badge badge-student">Student</span>
+              <span class="card-cta">Open →</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- TEAM RESOURCES -->
+      <div class="section-label">The Bundle &nbsp;—&nbsp; Team Project Resources (Bonus)</div>
+      <div class="resources">
+
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
+          <div class="card-num">07</div>
+          <div class="card-body">
+            <div class="card-info">
+              <h3>Team Facilitation Guide</h3>
+              <p>Everything teachers need to run this as a collaborative team project — cooperative learning context, ICT-aligned student roles, standup protocols, and team sprint review structure.</p>
+            </div>
+            <div class="card-right">
+              <span class="badge badge-educator">Educator</span>
+              <span class="card-cta">Open →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
+          <div class="card-num">08</div>
+          <div class="card-body">
+            <div class="card-info">
+              <h3>Team Sprint Journal</h3>
+              <p>A team version of the Sprint Journal with individual accountability slides per member, sprint planning meeting templates, and team reflection sections.</p>
+            </div>
+            <div class="card-right">
+              <span class="badge badge-student">Student</span>
+              <span class="card-cta">Open →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="resource-card" href="YOUR_LINK_HERE" target="_blank">
+          <div class="card-num">09</div>
+          <div class="card-body">
+            <div class="card-info">
+              <h3>Team Agreement Template</h3>
+              <p>A norm-setting document teams complete before Sprint 0 begins — ICT-aligned roles, decision-making agreements, communication norms, and signatures.</p>
+            </div>
+            <div class="card-right">
+              <span class="badge badge-bonus">Bonus</span>
+              <span class="card-cta">Open →</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- WHO THIS IS FOR -->
       <div class="section-label">Who This Is For</div>
       <div class="audience-row">
         <span class="pill pill-navy">CS Educators</span>
@@ -669,21 +737,23 @@
         <span class="pill pill-violet">CTE Instructors</span>
         <span class="pill pill-violet">Instructional Coaches</span>
         <span class="pill pill-orange">CSTA Networks</span>
-        <span class="pill pill-navy">District Curriculum Teams</span>
-        <span class="pill pill-orange">CS Dept. Leaders</span>
+        <span class="pill pill-navy">CS Department Leaders</span>
+        <span class="pill pill-orange">District Curriculum Teams</span>
         <span class="pill pill-violet">STEM Programs</span>
       </div>
 
+      <!-- CTA -->
       <div class="cta-block">
         <div>
           <h4>Access the Full Bundle — Free</h4>
           <p>All 9 resources in one place. Copy to your Google Drive, share with students, and adapt for your classroom.</p>
         </div>
-        <a class="cta-btn" href="#" target="_blank">Access All 9 Resources →</a>
+        <a class="cta-btn" href="YOUR_GOOGLE_DRIVE_FOLDER_LINK_HERE" target="_blank">Access All 9 Resources →</a>
       </div>
 
+      <!-- AI CREDIT -->
       <div class="ai-credit">
-        <span class="badge">Co-Created with Claude AI</span>
+        <span class="ai-badge">Co-Created with Claude AI</span>
         <p>This framework was developed in partnership with Claude AI, grounded in real classroom practice, ICT industry input, and a commitment to equity and access in CS education.</p>
       </div>
 
@@ -693,7 +763,7 @@
     <div class="footer">
       <div class="footer-left">
         <strong>Kim Morris</strong> &nbsp;·&nbsp; CS Educator &amp; Emerging Leader<br/>
-        San Diego Unified &nbsp;·&nbsp; San Diego Community College District &nbsp;·&nbsp; CCTE
+        San Diego Unified &nbsp;·&nbsp; AI Literacy &amp; CS Education &nbsp;·&nbsp; CSTA San Diego
       </div>
       <div class="footer-links">
         <a href="https://kmorr008.github.io/" target="_blank">Website</a>
@@ -701,7 +771,9 @@
         <a href="mailto:kmorr008@gmail.com">Contact</a>
       </div>
     </div>
-    <div class="bottom-bar"></div>
+
+    <div class="bottom-stripe"><div class="s1"></div><div class="s2"></div><div class="s3"></div></div>
+
   </div>
 </body>
 </html>
