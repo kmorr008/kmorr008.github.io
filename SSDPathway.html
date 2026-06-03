@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software & Systems Development Pathway</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #12153D;
+    --violet: #5B21B6;
+    --orange: #C2410C;
+    --charcoal: #3D3D3D;
+    --cream: #FAF8F4;
+    --light-violet: #EDE9FE;
+    --light-orange: #FEF3EE;
+    --white: #FFFFFF;
+    --border: #E5E0F5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    padding: 48px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 2px solid rgba(91,33,182,0.3);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 40%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(194,65,12,0.25);
+  }
+
+  .pathway-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 14px;
+    opacity: 0.9;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(30px, 4vw, 48px);
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 600px;
+    margin-bottom: 16px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: #C4B5FD;
+  }
+
+  .header-tagline {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    max-width: 540px;
+    line-height: 1.6;
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .badge-concentrator { background: rgba(91,33,182,0.25); color: #C4B5FD; border: 1px solid rgba(91,33,182,0.4); }
+  .badge-capstone { background: rgba(194,65,12,0.2); color: #FCA97A; border: 1px solid rgba(194,65,12,0.35); }
+  .badge-optional { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.15); }
+
+  /* LEGEND */
+  .legend-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 60px;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .legend-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9B92B8;
+    margin-right: 6px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--charcoal);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-required { background: var(--violet); }
+  .dot-optional { background: #C4B5FD; border: 2px dashed var(--violet); }
+  .dot-prereq { background: var(--orange); }
+
+  /* MAIN LAYOUT */
+  .main {
+    padding: 48px 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  /* PATHWAY FLOW */
+  .pathway-flow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  .flow-item {
+    flex: 1;
+    position: relative;
+  }
+
+  .flow-connector {
+    width: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 52px;
+  }
+
+  .flow-connector svg {
+    color: var(--violet);
+    opacity: 0.5;
+  }
+
+  .flow-connector.dashed svg {
+    color: #C4B5FD;
+    opacity: 0.6;
+  }
+
+  .course-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    height: 100%;
+    transition: box-shadow 0.2s;
+  }
+
+  .course-card:hover {
+    box-shadow: 0 8px 32px rgba(18,21,61,0.1);
+  }
+
+  .course-card.optional-card {
+    border-style: dashed;
+    border-color: #C4B5FD;
+    background: #FDFCFF;
+  }
+
+  .card-header {
+    padding: 20px 22px 16px;
+    position: relative;
+  }
+
+  .card-header.navy-bg { background: var(--navy); }
+  .card-header.violet-bg { background: var(--violet); }
+  .card-header.orange-bg { background: var(--orange); }
+  .card-header.soft-navy { background: #1E2350; }
+
+  .course-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .course-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .course-question {
+    font-size: 11.5px;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .card-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+  }
+
+  .card-body {
+    padding: 18px 22px 20px;
+  }
+
+  .card-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+    margin-top: 14px;
+  }
+
+  .card-section-label:first-child { margin-top: 0; }
+
+  .card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .card-list li {
+    font-size: 12.5px;
+    color: var(--charcoal);
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    line-height: 1.45;
+  }
+
+  .card-list li::before {
+    content: '→';
+    font-size: 10px;
+    color: var(--violet);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .card-list.orange-bullets li::before { color: var(--orange); }
+
+  .cert-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--light-orange);
+    border: 1px solid #FCA97A;
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin: 3px 3px 0 0;
+  }
+
+  .cert-chip svg { flex-shrink: 0; }
+
+  /* SKILLS PROGRESSION */
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    color: #7A7A9A;
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .skills-panel {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 30px;
+    border: 1px solid var(--border);
+  }
+
+  .skills-panel-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .skills-panel-title .icon-circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ic-tech { background: var(--light-violet); color: var(--violet); }
+  .ic-soft { background: var(--light-orange); color: var(--orange); }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+    align-items: start;
+  }
+
+  .skill-row:last-child { margin-bottom: 0; }
+
+  .skill-course-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .scl-1 { background: #3B4280; }
+  .scl-2 { background: var(--violet); }
+  .scl-3 { background: var(--orange); }
+  .scl-4 { background: var(--navy); }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-pill {
+    font-size: 11.5px;
+    padding: 4px 11px;
+    border-radius: 100px;
+    font-weight: 500;
+    color: var(--navy);
+    background: var(--cream);
+    border: 1px solid var(--border);
+  }
+
+  .skill-pill.new {
+    background: #EDE9FE;
+    border-color: #C4B5FD;
+    color: var(--violet);
+    font-weight: 600;
+  }
+
+  .skill-pill.advanced {
+    background: #FEF3EE;
+    border-color: #FCA97A;
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  /* PATHWAY COMPLETION SUMMARY */
+  .completion-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+
+  .completion-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 22px 20px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .completion-card.highlight {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+
+  .completion-card.highlight .cc-label { color: rgba(255,255,255,0.6); }
+  .completion-card.highlight .cc-title { color: var(--white); }
+  .completion-card.highlight .cc-desc { color: rgba(255,255,255,0.65); }
+
+  .cc-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    color: var(--violet);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .completion-card.highlight .cc-num { color: #C4B5FD; }
+
+  .cc-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .cc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .cc-desc {
+    font-size: 12px;
+    color: #7A7A9A;
+    line-height: 1.5;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--violet), transparent);
+    margin-bottom: 40px;
+    border-radius: 2px;
+    opacity: 0.25;
+  }
+
+  /* FOOTER NOTE */
+  .footer-note {
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 24px 30px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 48px;
+  }
+
+  .fn-icon {
+    width: 36px; height: 36px;
+    background: rgba(91,33,182,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: #C4B5FD;
+    font-size: 16px;
+  }
+
+  .fn-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 5px;
+  }
+
+  .fn-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  .prereq-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(194,65,12,0.2);
+    border: 1px solid rgba(194,65,12,0.4);
+    color: #FCA97A;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .header, .main { padding-left: 24px; padding-right: 24px; }
+    .legend-bar { padding: 12px 24px; }
+    .pathway-flow { flex-direction: column; gap: 12px; }
+    .flow-connector { transform: rotate(90deg); padding-top: 0; padding-left: 52px; width: 100%; justify-content: flex-start; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .completion-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="pathway-label">San Diego Unified · Software & Systems Development</div>
+  <h1>From Curiosity to <em>Career-Ready</em></h1>
+  <p class="header-tagline">A four-course pathway that moves students from foundational exploration to real-world software development — building both technical skills and the human skills that define great technologists.</p>
+  <div class="header-badges">
+    <span class="badge badge-optional">✦ CS Discoveries — Optional Entry</span>
+    <span class="badge badge-concentrator">★ AP CSP — Concentrator Course</span>
+    <span class="badge badge-capstone">◆ AP CS A — Capstone Course</span>
+    <span class="badge badge-optional">✦ CS 3/4 — Optional Advanced</span>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend-bar">
+  <span class="legend-label">Key</span>
+  <div class="legend-item"><div class="legend-dot dot-required"></div> Required for Pathway Completion</div>
+  <div class="legend-item"><div class="legend-dot dot-optional"></div> Optional Elective</div>
+  <div class="legend-item"><div class="legend-dot dot-prereq"></div> Prerequisite Required</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- PATHWAY FLOW CARDS -->
+  <div class="pathway-flow">
+
+    <!-- CS Discoveries -->
+    <div class="flow-item">
+      <div class="course-card optional-card">
+        <div class="card-header soft-navy">
+          <div class="course-num">Course 01 · Optional Elective</div>
+          <div class="course-name">Computer Science Discoveries</div>
+          <div class="course-question">"How do computer systems work?"</div>
+          <div class="card-tags">
+            <span class="card-tag">No Prerequisite</span>
+            <span class="card-tag">Elective</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-section-label">What Students Experience</div>
+          <ul class="card-list">
+            <li>Web development fundamentals</li>
+            <li>How computers work at the hardware level</li>
+            <li>AI literacy — how AI systems function</li>
+            <li>Game development</li>
+            <li>App development</li>
+            <li>Physical computing</li>
+          </ul>
+          <div class="card-section-label">Vibe & Approach</div>
+          <ul class="card-list orange-bullets">
+            <li>Fun, hands-on, exploratory entry point</li>
+            <li>Broad exposure — something for everyone</li>
+            <li>Sparks curiosity before deep commitment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-connector">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+
+    <!-- AP CSP -->
+    <div class="flow-item">
+      <div class="course-card">
+        <div class="card-header violet-bg">
+          <div class="course-num">Course 02 · Concentrator ★</div>
+          <div class="course-name">AP Computer Science Principles</div>
+          <div class="course-question">"How have computer systems impacted the world?"</div>
+          <div class="card-tags">
+            <span class="card-tag">No Prerequisite</span>
+            <span class="card-tag">AP Exam</span>
+            <span class="card-tag">Dual Credit</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-section-label">What Students Learn</div>
+          <ul class="card-list">
+            <li>How digital information works</li>
+            <li>Internet, networks & data transmission</li>
+            <li>Programming & algorithm building</li>
+            <li>Physical computing</li>
+            <li>Cybersecurity & safe computing</li>
+            <li>AI literacy deepened</li>
+            <li>Intro to data science</li>
+          </ul>
+          <div class="card-section-label">College Credit & Certifications</div>
+          <div>
+            <span class="cert-chip">🎓 AP Exam Credit</span>
+            <span class="cert-chip">🎓 CISC 150 @ Mesa College</span>
+            <span class="cert-chip">📜 Computational Thinking Cert</span>
+            <span class="cert-chip">📜 Python Cert (optional)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-connector">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+
+    <!-- AP CS A -->
+    <div class="flow-item">
+      <div class="course-card">
+        <div class="card-header orange-bg">
+          <div class="course-num">Course 03 · Capstone ◆</div>
+          <div class="course-name">AP Computer Science A</div>
+          <div class="course-question">"How do I build computer systems?"</div>
+          <div class="card-tags">
+            <span class="card-tag">No Prerequisite</span>
+            <span class="card-tag">AP Exam</span>
+            <span class="card-tag">Java</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-section-label">What Students Learn</div>
+          <ul class="card-list">
+            <li>Object-oriented programming in Java</li>
+            <li>Software design & architecture</li>
+            <li>Advanced algorithms & data structures</li>
+            <li>Professional digital portfolio — built for college, internships & jobs</li>
+          </ul>
+          <div class="card-section-label">College Credit & Certifications</div>
+          <div>
+            <span class="cert-chip">🎓 AP Exam Credit</span>
+            <span class="cert-chip">📜 Java Certification (optional)</span>
+            <span class="cert-chip">💼 Digital Portfolio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-connector dashed">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+
+    <!-- CS 34 -->
+    <div class="flow-item">
+      <div class="course-card optional-card">
+        <div class="card-header navy-bg">
+          <div class="course-num">Course 04 · Optional Advanced</div>
+          <div class="course-name">Computer Science 3/4</div>
+          <div class="course-question">"What's my role in software & systems development?"</div>
+          <div class="card-tags">
+            <span class="card-tag">Prereq: AP CS A</span>
+            <span class="card-tag">Real-World</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-section-label">What Students Do</div>
+          <ul class="card-list">
+            <li>Build real applications for their community</li>
+            <li>Job shadows in tech industry</li>
+            <li>Collaborate with Mesa College students (advanced Java)</li>
+            <li>Compete in CS competitions</li>
+            <li>Present at a public showcase</li>
+          </ul>
+          <div class="card-section-label">Certifications Earned</div>
+          <div>
+            <span class="cert-chip">📜 Software Development Cert</span>
+            <span class="cert-chip">📜 Elective Cert of Choice</span>
+            <span class="cert-chip">🏆 Competition Experience</span>
+          </div>
+          <div class="prereq-arrow">⚠ Prerequisite: Must complete AP CS A first</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SKILLS PROGRESSION -->
+  <div class="divider"></div>
+
+  <div class="section-title">Skills Built Across the Pathway</div>
+  <div class="section-subtitle">Each course introduces new skills — and continues building the ones that came before.</div>
+
+  <div class="skills-grid">
+
+    <!-- Technical Skills -->
+    <div class="skills-panel">
+      <div class="skills-panel-title">
+        <div class="icon-circle ic-tech">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        Technical Skills
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-course-label scl-1">CS Discoveries</div>
+        <div class="skill-pills">
+          <span class="skill-pill new">HTML/CSS basics</span>
+          <span class="skill-pill new">How computers work</span>
+          <span class="skill-pill new">AI literacy (intro)</span>
+          <span class="skill-pill new">Physical computing</span>
+          <span class="skill-pill new">Block-based coding</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-course-label scl-2">AP CSP</div>
+        <div class="skill-pills">
+          <span class="skill-pill">AI literacy</span>
+          <span class="skill-pill">Physical computing</span>
+          <span class="skill-pill new">Text-based programming</span>
+          <span class="skill-pill new">Algorithms & abstraction</span>
+          <span class="skill-pill new">Data science basics</span>
+          <span class="skill-pill new">Networks & internet</span>
+          <span class="skill-pill new">Cybersecurity</span>
+          <span class="skill-pill new">Python (optional)</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-course-label scl-3">AP CS A</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Algorithms</span>
+          <span class="skill-pill">Programming logic</span>
+          <span class="skill-pill new">Java programming</span>
+          <span class="skill-pill new">OOP & design patterns</span>
+          <span class="skill-pill new">Data structures</span>
+          <span class="skill-pill new">Portfolio development</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-course-label scl-4">CS 3/4</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">OOP</span>
+          <span class="skill-pill">Data structures</span>
+          <span class="skill-pill advanced">Advanced Java</span>
+          <span class="skill-pill advanced">Full app development</span>
+          <span class="skill-pill advanced">Industry certifications</span>
+          <span class="skill-pill advanced">Software dev lifecycle</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soft / Human Skills -->
+    <div class="skills-panel">
+      <div class="skills-panel-title">
+        <div class="icon-circle ic-soft">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        Human &amp; Professional Skills
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-course-label scl-1">CS Discoveries</div>
+        <div class="skill-pills">
+          <span class="skill-pill new">Curiosity & exploration</span>
+          <span class="skill-pill new">Creative problem-solving</span>
+          <span class="skill-pill new">Peer collaboration</span>
+          <span class="skill-pill new">Iterative thinking</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-course-label scl-2">AP CSP</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Creative problem-solving</span>
+          <span class="skill-pill">Collaboration</span>
+          <span class="skill-pill new">Ethical reasoning</span>
+          <span class="skill-pill new">Systems thinking</span>
+          <span class="skill-pill new">Digital citizenship</span>
+          <span class="skill-pill new">Presenting ideas</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-course-label scl-3">AP CS A</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Systems thinking</span>
+          <span class="skill-pill">Ethical reasoning</span>
+          <span class="skill-pill new">Persistence & debugging mindset</span>
+          <span class="skill-pill new">Self-advocacy (portfolio)</span>
+          <span class="skill-pill new">Professional communication</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-course-label scl-4">CS 3/4</div>
+        <div class="skill-pills">
+          <span class="skill-pill">All prior skills</span>
+          <span class="skill-pill advanced">Workplace readiness</span>
+          <span class="skill-pill advanced">Community impact</span>
+          <span class="skill-pill advanced">Public presentation</span>
+          <span class="skill-pill advanced">Networking & mentorship</span>
+          <span class="skill-pill advanced">Leadership in tech</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PATHWAY COMPLETION SNAPSHOT -->
+  <div class="divider"></div>
+
+  <div class="section-title">Pathway at a Glance</div>
+  <div class="section-subtitle">What students walk away with at each stage.</div>
+
+  <div class="completion-row">
+    <div class="completion-card">
+      <div class="cc-num">01</div>
+      <div class="cc-label">CS Discoveries</div>
+      <div class="cc-title">Spark &amp; Foundation</div>
+      <div class="cc-desc">Students leave knowing CS is for them. Broad exposure, hands-on fun, and a first real look at how technology actually works.</div>
+    </div>
+    <div class="completion-card highlight">
+      <div class="cc-num">02</div>
+      <div class="cc-label">AP CSP — Concentrator</div>
+      <div class="cc-title">College Credit + Real Skills</div>
+      <div class="cc-desc">AP credit, dual enrollment credit at Mesa, and optional certifications in Computational Thinking and Python. Students understand CS's role in the world.</div>
+    </div>
+    <div class="completion-card highlight">
+      <div class="cc-num">03</div>
+      <div class="cc-label">AP CS A — Capstone</div>
+      <div class="cc-title">Builder Mindset + Portfolio</div>
+      <div class="cc-desc">AP credit, Java certification option, and a professional portfolio ready for college applications, internships, and job interviews.</div>
+    </div>
+    <div class="completion-card">
+      <div class="cc-num">04</div>
+      <div class="cc-label">CS 3/4 — Advanced</div>
+      <div class="cc-title">Career-Ready Technologist</div>
+      <div class="cc-desc">Real applications, industry certifications, community impact, and workplace experience through job shadows, college collaboration, and showcases.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div class="footer-note">
+    <div class="fn-icon">✦</div>
+    <div>
+      <div class="fn-title">Pathway Completion Requirements</div>
+      <div class="fn-text">To be an official pathway completer, students must complete <strong style="color:white">AP Computer Science Principles</strong> (concentrator) and <strong style="color:white">AP Computer Science A</strong> (capstone). CS Discoveries is an optional entry point with no prerequisites. CS 3/4 is an optional advanced course — students must complete AP CS A before enrolling. All other courses are open enrollment and not restricted to any grade level</grade-level>.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
