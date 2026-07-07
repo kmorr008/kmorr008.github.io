@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulting Inquiry — KBR Advantage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#12153D;
+    --navy-panel:#1B1F52;
+    --violet:#5B21B6;
+    --terracotta:#C2410C;
+    --charcoal:#3A3A3F;
+    --cream:#F7F5F2;
+    --border:rgba(255,255,255,0.12);
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--navy);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(91,33,182,0.35), transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(194,65,12,0.20), transparent 45%);
+    font-family:'Inter', sans-serif;
+    color:var(--cream);
+    min-height:100vh;
+    padding:48px 20px 80px;
+  }
+
+  .wrap{
+    max-width:680px;
+    margin:0 auto;
+  }
+
+  .eyebrow{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--terracotta);
+    margin:0 0 14px;
+  }
+
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(28px, 5vw, 40px);
+    font-weight:700;
+    line-height:1.15;
+    margin:0 0 16px;
+    color:#fff;
+  }
+
+  .divider{
+    width:64px;
+    height:4px;
+    background:linear-gradient(90deg, var(--violet), var(--terracotta));
+    border-radius:2px;
+    margin:0 0 22px;
+  }
+
+  .intro{
+    font-size:16px;
+    line-height:1.6;
+    color:rgba(247,245,242,0.82);
+    max-width:56ch;
+    margin:0 0 40px;
+  }
+
+  form{
+    position:relative;
+    background:var(--navy-panel);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:40px clamp(20px, 5vw, 44px);
+    overflow:hidden;
+  }
+
+  form::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; bottom:0;
+    width:5px;
+    background:linear-gradient(180deg, var(--violet), var(--terracotta));
+  }
+
+  fieldset{
+    border:none;
+    margin:0 0 32px;
+    padding:0;
+  }
+
+  fieldset:last-of-type{ margin-bottom:8px; }
+
+  legend{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--terracotta);
+    padding:0 0 14px;
+  }
+
+  .row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+
+  @media (max-width:560px){
+    .row{ grid-template-columns:1fr; }
+  }
+
+  .field{ margin-bottom:18px; }
+  .field:last-child{ margin-bottom:0; }
+
+  label{
+    display:block;
+    font-size:13.5px;
+    font-weight:500;
+    color:rgba(247,245,242,0.9);
+    margin-bottom:7px;
+  }
+
+  label .req{ color:var(--terracotta); }
+  label .opt{
+    font-weight:400;
+    color:rgba(247,245,242,0.45);
+    font-size:12.5px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea{
+    width:100%;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:9px;
+    padding:11px 13px;
+    font-family:'Inter', sans-serif;
+    font-size:14.5px;
+    color:#fff;
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+
+  input::placeholder, textarea::placeholder{
+    color:rgba(247,245,242,0.38);
+  }
+
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color:var(--terracotta);
+    background:rgba(255,255,255,0.09);
+  }
+
+  select{
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="9"><path d="M1 1l6 6 6-6" stroke="%23C2410C" stroke-width="2" fill="none" stroke-linecap="round"/></svg>');
+    background-repeat:no-repeat;
+    background-position:right 13px center;
+    padding-right:34px;
+  }
+
+  select option{ background:#1B1F52; color:#fff; }
+
+  textarea{
+    resize:vertical;
+    min-height:96px;
+  }
+
+  .hint{
+    font-size:12px;
+    color:rgba(247,245,242,0.45);
+    margin-top:6px;
+    line-height:1.5;
+  }
+
+  button[type="submit"]{
+    width:100%;
+    background:var(--terracotta);
+    color:#fff;
+    border:none;
+    border-radius:9px;
+    padding:15px 20px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:0.01em;
+    cursor:pointer;
+    transition:background 0.15s ease, transform 0.1s ease;
+  }
+
+  button[type="submit"]:hover{ background:#a8390a; }
+  button[type="submit"]:active{ transform:scale(0.99); }
+  button[type="submit"]:disabled{
+    background:rgba(194,65,12,0.4);
+    cursor:not-allowed;
+  }
+
+  #status{
+    margin-top:18px;
+    font-size:14px;
+    line-height:1.6;
+    display:none;
+  }
+
+  #status.success{
+    display:block;
+    color:#8FE3B0;
+  }
+
+  #status.error{
+    display:block;
+    color:#F3A1A1;
+  }
+
+  footer{
+    text-align:center;
+    margin-top:36px;
+    font-size:12.5px;
+    color:rgba(247,245,242,0.4);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Consulting Inquiry</p>
+  <h1>Let's talk about what your team needs.</h1>
+  <div class="divider"></div>
+  <p class="intro">
+    Tell me a bit about your organization and what you're hoping to accomplish.
+    I'll follow up personally to figure out the right fit — whether that's a workshop,
+    a curriculum project, or ongoing support.
+  </p>
+
+  <form id="consultingForm">
+
+    <fieldset>
+      <legend>About You</legend>
+      <div class="row">
+        <div class="field">
+          <label for="name">Full Name <span class="req">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="Jane Rivera">
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="jane@district.org">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="role">Your Role <span class="opt">(optional)</span></label>
+          <input type="text" id="role" name="role" placeholder="Director of Curriculum">
+        </div>
+        <div class="field">
+          <label for="orgName">Organization Name <span class="req">*</span></label>
+          <input type="text" id="orgName" name="orgName" required placeholder="Riverside Unified School District">
+        </div>
+      </div>
+      <div class="field">
+        <label for="orgType">Organization Type <span class="req">*</span></label>
+        <select id="orgType" name="orgType" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="School District">School District</option>
+          <option value="Small Business">Small Business</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>What You're Looking For</legend>
+      <div class="field">
+        <label for="serviceArea">Area of Interest <span class="req">*</span></label>
+        <select id="serviceArea" name="serviceArea" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="AI Literacy & Professional Development">AI Literacy & Professional Development</option>
+          <option value="CS/CTE Curriculum Consulting">CS/CTE Curriculum Consulting</option>
+          <option value="IT Solutions & Cybersecurity">IT Solutions & Cybersecurity</option>
+          <option value="Not Sure / General Inquiry">Not Sure / General Inquiry</option>
+          <option value="Both / Multiple Areas">Both / Multiple Areas</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="details">Tell Us More <span class="req">*</span></label>
+        <textarea id="details" name="details" required placeholder="What are you hoping to achieve? What's prompting this inquiry right now?"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Format & Scope</legend>
+      <div class="row">
+        <div class="field">
+          <label for="format">Main Goal / Format <span class="req">*</span></label>
+          <select id="format" name="format" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Keynote / Speaking Engagement">Keynote / Speaking Engagement</option>
+            <option value="Curriculum / Resource Development">Curriculum / Resource Development</option>
+            <option value="Ongoing Consulting">Ongoing Consulting</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="deliveryMode">Delivery Mode <span class="req">*</span></label>
+          <select id="deliveryMode" name="deliveryMode" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="In-Person">In-Person</option>
+            <option value="Virtual">Virtual</option>
+            <option value="Asynchronous / Self-Paced">Asynchronous / Self-Paced</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="timeCommitment">Estimated Time Commitment <span class="req">*</span></label>
+        <input type="text" id="timeCommitment" name="timeCommitment" required placeholder="e.g. three 1-hour sessions, or one full-day (6 hr) event">
+        <p class="hint">Rough estimates are totally fine — this just helps me scope the conversation.</p>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="budget">Budget Range <span class="opt">(optional)</span></label>
+          <select id="budget" name="budget">
+            <option value="" disabled selected>Select one</option>
+            <option value="Under $1,000">Under $1,000</option>
+            <option value="$1,000 – $2,500">$1,000 – $2,500</option>
+            <option value="$2,500 – $5,000">$2,500 – $5,000</option>
+            <option value="$5,000 – $10,000">$5,000 – $10,000</option>
+            <option value="$10,000+">$10,000+</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="timeline">Desired Timeline <span class="opt">(optional)</span></label>
+          <input type="text" id="timeline" name="timeline" placeholder="e.g. this fall, within 2 months">
+        </div>
+      </div>
+      <div class="field">
+        <label for="referral">How Did You Hear About Me? <span class="opt">(optional)</span></label>
+        <input type="text" id="referral" name="referral" placeholder="e.g. a colleague, conference, LinkedIn">
+      </div>
+    </fieldset>
+
+    <button type="submit" id="submitBtn">Send Inquiry</button>
+    <div id="status"></div>
+  </form>
+
+  <footer>KBR Advantage — Consulting &amp; Organizational Development</footer>
+</div>
+
+<script>
+  // Paste the Web App URL you get after deploying the Google Apps Script
+  // (see the accompanying Apps Script file/instructions) between the quotes below.
+  const SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+  const form = document.getElementById('consultingForm');
+  const statusEl = document.getElementById('status');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    if (SCRIPT_URL.indexOf('PASTE_YOUR') === 0) {
+      statusEl.className = 'error';
+      statusEl.textContent = 'Form isn\'t connected yet — add your Google Apps Script Web App URL in the code.';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    statusEl.className = '';
+    statusEl.textContent = '';
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.submittedAt = new Date().toISOString();
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      });
+
+      // 'no-cors' mode means we can't read the response, so we optimistically
+      // assume success once the request completes without throwing.
+      statusEl.className = 'success';
+      statusEl.textContent = "Thanks — your inquiry is in! I'll be in touch soon.";
+      form.reset();
+    } catch (err) {
+      statusEl.className = 'error';
+      statusEl.textContent = 'Something went wrong sending your inquiry. Please try again or email directly.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Inquiry';
+    }
+  });
+</script>
+</body>
+</html>
