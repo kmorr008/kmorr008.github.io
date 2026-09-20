@@ -3,12 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kim Morris — CS Education & Consulting</title>
-    <meta name="description" content="CS educator, program leader, and curriculum designer specializing in learning systems that work — in classrooms, organizations, and institutions.">
+    <title>Kim Morris | Digital Literacy Specialist &amp; CS Educator</title>
+    <meta name="description" content="Digital literacy specialist and computer science educator helping students, families, and school leaders understand the systems shaping the digital world, and lead them.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Pathway steps: four guiding questions (brand colors) */
+        .pathway-steps {
+            list-style: none;
+            counter-reset: step;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .pathway-steps li {
+            counter-increment: step;
+            padding: 16px 14px 14px;
+            border-top: 4px solid #5B21B6;
+            background: rgba(91, 33, 182, 0.06);
+            border-radius: 6px;
+        }
+        .pathway-steps li::before {
+            content: counter(step);
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #5B21B6;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .pathway-steps .step-course {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #C2410C;
+            margin-bottom: 6px;
+        }
+        .pathway-steps .step-question {
+            display: block;
+            color: #12153D;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+    </style>
 </head>
 <body>
 
@@ -36,20 +80,21 @@
     <section id="about" class="section hero">
         <div class="container hero-layout">
             <div class="hero-text">
-                <p class="eyebrow">CS Education &amp; Program Leadership</p>
-                <h1>I design learning systems that work for the students who need them most.</h1>
-                <p class="brand-statement">I'm a computer science educator and program leader who brings rigorous instructional design to classrooms, organizations, and institutions that need to build up the capacity of their people.</p>
+                <p class="eyebrow">Digital Literacy &amp; Computer Science Education</p>
+                <h1>The digital world is changing fast. I'm making sure students are ready to lead it.</h1>
+                <p class="brand-statement">Every day, students are shaped by technology they were never taught to understand: the apps they scroll, the tools that answer their questions, the systems that decide what they see. I don't think the answer is to ban it or to simply hand it over. The answer is literacy.</p>
+                <p class="brand-statement">I'm a computer science educator, and after 15 years in classrooms, first teaching math and now CS, I believe every student deserves to know how these systems work, who they serve, and who they might leave out. When students understand that, they stop being users of the digital world and start becoming the people who question it and shape what comes next.</p>
                 <div class="cta-group">
                     <a href="#work" class="cta cta-primary">See the work</a>
                     <a href="#services" class="cta cta-secondary">Explore services</a>
                     <a href="#contact" class="cta cta-secondary">Get in touch</a>
                 </div>
                 <div class="audience-tags">
-                    <span>Universities &amp; Colleges</span>
-                    <span>K–12 Districts</span>
-                    <span>Corporate L&amp;D</span>
-                    <span>EdTech</span>
-                    <span>Consulting</span>
+                    <span>School &amp; District Leaders</span>
+                    <span>CS &amp; STEM Educators</span>
+                    <span>Policymakers</span>
+                    <span>Families &amp; Community</span>
+                    <span>EdTech Partners</span>
                 </div>
             </div>
             <div class="hero-image">
@@ -59,7 +104,9 @@
 
         <div class="container why-block">
             <h2>My Why</h2>
-            <p>My why is simple: every student deserves to cross the stage career-ready and equipped to solve real problems. I've spent 15 years building the programs, training the teachers, and designing the curriculum to make that possible. The technical expertise matters, but what actually moves people is relationships — and that's always been my real superpower.</p>
+            <p>Digital systems run our lives. They shape what we see, how we learn, how we work, and how we vote. Most people have never been taught how they actually work.</p>
+            <p>I believe that has to change. Everyone deserves to understand how computer systems work, not just the people who build them. Digital literacy isn't a bonus skill for a lucky few. It's what lets us be informed voters and helps us make our world better. Right now, who gets that understanding too often depends on their school, their district, or their job.</p>
+            <p>That's why I do this work. I've spent my career building programs, training teachers, and designing curriculum so every student can cross the stage career-ready and able to lead in a digital world they truly understand. The technical expertise matters, but relationships are what move people. That has always been my real superpower.</p>
             <p><a href="https://www.youtube.com/watch?v=Sw0pLftEIDc" target="_blank" rel="noreferrer noopener">Learn more about what drives me as an educator</a></p>
         </div>
     </section>
@@ -71,32 +118,52 @@
         <div class="container">
             <p class="eyebrow">Work &amp; Impact</p>
             <h2>The work, up close</h2>
-            <p class="section-intro">Real projects. Real students. Real outcomes.</p>
+            <p class="section-intro">Three ways I turn these beliefs into practice: a pathway, a framework, and a toolkit.</p>
 
             <div class="case-study-grid">
 
                 <article class="case-study">
-                    <div class="case-tag">Curriculum & Pathway Design</div>
-                    <h3>Building a career-ready CS pathway at San Diego Unified</h3>
-                    <p>I designed a comprehensive pathway aligned to both CTE Model Curriculum and CSTA standards. I wanted every student who completed the pathway to leave with something real: at least one professional certification, a digital portfolio they were proud of, and genuine work-based learning experience. I built in equitable grading practices and intentionally designed inclusive spaces that increased participation from female students, students with IEPs, and students from historically underrepresented communities.</p>
-                    <p class="case-outcome">Pathway completers leave with industry-recognized credentials, a professional digital portfolio, and hands-on WBL experience.</p>
-                    <p><a href="SSDPathway.html">Learn more about the Software and Systems Development Pathway here</a></p>
+                    <div class="case-tag">Curriculum &amp; Pathway Design</div>
+                    <h3>A four-course pathway that turns students into systems thinkers</h3>
+                    <p>The Software &amp; Systems Development Pathway at San Diego Unified asks one question in each course. Together, they move students from understanding systems to owning their role in them.</p>
+                    <ol class="pathway-steps">
+                        <li>
+                            <span class="step-course">CS Discoveries</span>
+                            <span class="step-question">What are computer systems?</span>
+                        </li>
+                        <li>
+                            <span class="step-course">AP CS Principles</span>
+                            <span class="step-question">How have computer systems impacted the world?</span>
+                        </li>
+                        <li>
+                            <span class="step-course">AP CS A</span>
+                            <span class="step-question">How can I build computer systems?</span>
+                        </li>
+                        <li>
+                            <span class="step-course">CS 3-4</span>
+                            <span class="step-question">What is my role in software and systems development?</span>
+                        </li>
+                    </ol>
+                    <p>I designed the pathway to align with the CTE Model Curriculum and CSTA standards, and I wanted every student who completed it to leave with something real: at least one professional certification, a digital portfolio they're proud of, and genuine work-based learning experience. I built in equitable grading practices and intentionally designed inclusive spaces that increased participation from female students, students with IEPs, and students from historically underrepresented communities.</p>
+                    <p class="case-outcome">Pathway completers leave with industry-recognized credentials, a professional digital portfolio, and hands-on work-based learning experience.</p>
+                    <p><a href="SSDPathway.html">Explore the Software &amp; Systems Development Pathway</a></p>
                 </article>
 
                 <article class="case-study">
-                    <div class="case-tag">AI Literacy & Industry Alignment</div>
-                    <h3>Redesigning curriculum with industry partners and building an AI-assisted agile framework</h3>
-                    <p>I partnered with ICT industry professionals to audit and redesign my curriculum so it reflects how modern teams actually work. Out of that process came something I'm especially proud of: an AI-assisted agile framework for user-centered design. Students plan sprint goals, create documentation, conduct user testing and feedback cycles, and reflect on their progress throughout. It's process-based learning by design, which also means it's also AI-proof assessment! </p>
-                    <p class="case-outcome">Students experience the full design cycle — planning, building, testing, reflecting — using the same collaborative tools and practices they'll encounter in the workforce.</p>
-                    <p><a href="agile-framework.html">Access the framework resources here</a></p>
+                    <div class="case-tag">AI Literacy &amp; Industry Alignment</div>
+                    <h3>An AI-assisted agile framework that makes assessment AI-proof</h3>
+                    <p>I partnered with ICT industry professionals to audit my curriculum and redesign it around how modern teams actually work. Out of that came something I'm especially proud of: an AI-assisted agile framework, the same short-cycle way software teams plan, build, and improve their work. Students set goals in short work cycles, document their thinking, test with real users, gather feedback, and reflect along the way. Because it assesses the process, not the product, it's AI-proof by design.</p>
+                    <p>I've also had advice and mentorship from industry representatives at Apple, Google, Microsoft, and PlayStation on digital literacy and curriculum, and I bring what I learn back to my classroom.</p>
+                    <p class="case-outcome">Students experience the full design cycle of planning, building, testing, and reflecting, using the same collaborative tools and practices they'll meet in the workforce.</p>
+                    <p><a href="agile-framework.html">Explore the AI-assisted agile framework resources</a></p>
                 </article>
 
                 <article class="case-study">
                     <div class="case-tag">Career Readiness Resources</div>
                     <h3>Giving every student the tools to land the job</h3>
-                    <p>I built a career development resource folder available to any CTE student. It includes prompting guides for developing a professional brand, tailoring a resume, building a digital portfolio, and preparing for an interview. Every resource was developed in partnership with ICT industry mentors to make sure the practices actually reflect what hiring managers look for. Every student should walk out of a CTE program knowing how to present themselves professionally.</p>
-                    <p class="case-outcome">A freely accessible, industry-validated toolkit that any CTE educator can adopt to help students show up career-ready from day one of their job search.</p>
-                    <p><a href="career-dev-toolkit.html">View the toolkit here</a></p>
+                    <p>I built a career development resource folder for any CTE student. It includes prompting guides for building a professional brand, tailoring a resume, creating a digital portfolio, and preparing for an interview. Every resource was developed with ICT industry mentors, so the practices reflect what hiring managers actually look for. Every student should leave a CTE program knowing how to present themselves professionally.</p>
+                    <p class="case-outcome">A free, industry-validated toolkit any CTE educator can adopt so students show up career-ready from day one of their job search.</p>
+                    <p><a href="career-dev-toolkit.html">View the career development toolkit</a></p>
                 </article>
 
             </div>
@@ -109,18 +176,28 @@
     <section id="philosophy" class="section">
         <div class="container">
             <p class="eyebrow">Teaching &amp; Leadership Philosophy</p>
-            <h2>How I think about education in the age of AI</h2>
+            <h2>How I think about digital literacy in the age of AI</h2>
 
             <div class="philosophy-pillars">
 
                 <div class="philosophy-pillar">
-                    <h3>AI literacy is an equity issue, not a tech issue.</h3>
-                    <p>Every student deserves access to AI tools and the skills to use them responsibly, critically, and effectively. When we treat AI literacy as optional or advanced, we recreate the same gaps we've always had just with newer technology. The students who need these skills most are the ones we can least afford to leave behind.</p>
+                    <h3>Literacy now, not ban vs. allow.</h3>
+                    <p>The debate over whether to ban or allow AI tools misses the point. Every student, family, and community member needs to understand the systems shaping their lives, whether or not their school, district, or job has a policy on AI. Waiting to see what happens is a choice too, and the students who pay for it are the ones who can least afford to.</p>
+                </div>
+
+                <div class="philosophy-pillar">
+                    <h3>Literacy is for everyone. Tool fluency is for careers.</h3>
+                    <p>Digital and AI literacy is a civic necessity, and it belongs to every student. Tool fluency is different. It's career-specific, for students in CTE pathways who need to meet industry practice. When we treat literacy as optional or advanced, we recreate the same gaps we've always had with newer technology. The students who need it most are the ones we can least afford to leave behind.</p>
                 </div>
 
                 <div class="philosophy-pillar">
                     <h3>Assess the process, not the product.</h3>
-                    <p>In the age of AI, the product proves nothing while the thinking behind it proves everything. Process-based learning is AI-proof by design: when students plan, document, test, reflect, and iterate, we see their minds at work in ways no generated output can fake. This isn't just good assessment practice — it's the foundation of how real teams actually build things.</p>
+                    <p>In the age of AI, the product proves nothing while the thinking behind it proves everything. Process-based learning is AI-proof by design: when students plan, document, test, reflect, and iterate, we see their minds at work in ways no generated output can fake. This isn't just good assessment practice. It's the foundation of how real teams actually build things.</p>
+                </div>
+
+                <div class="philosophy-pillar">
+                    <h3>Behind every system are people.</h3>
+                    <p>If AI can write code, students can spend more time on what matters most: who a system serves, who it might harm, and what it costs. That means privacy, mental wellness, bias, and the environment. It means asking who owns your face and voice, and whether you ever agreed to their use. It also means noticing when students start treating AI like a friend, because that deserves our attention.</p>
                 </div>
 
                 <div class="philosophy-pillar">
@@ -139,18 +216,16 @@
         <div class="container">
             <p class="eyebrow">What I offer</p>
             <h2>Extending this work beyond my classroom</h2>
-            <p class="section-intro">I've been doing this work inside schools and districts for 15 years. I'm now available to bring it to yours.
-                <br>Everything I offer grows directly out of practice. I don't consult on things I haven't built. Here's where I can show up for your organization:
-            </p>
+            <p class="section-intro">Everything I offer grows directly out of practice, and I don't consult on things I haven't built. I lead at the school, district, county, and community level, and I see this work as a high school teacher, a community college instructor, and a parent. I'm now available to bring it to your school, district, or organization. Here's where I can show up:</p>
 
             <div class="services-grid">
 
                 <div class="service-card">
                     <div class="service-icon">&#127891;</div>
-                    <h3>Workshops & PD</h3>
-                    <p>Hands-on sessions for educators on AI literacy, career readiness integration, and equitable CS instruction.</p>
+                    <h3>Workshops &amp; PD</h3>
+                    <p>Hands-on sessions on digital and AI literacy, career readiness, and equitable CS instruction.</p>
                     <ul>
-                        <li>AI literacy and responsible AI integration</li>
+                        <li>Digital and AI literacy, and responsible AI integration</li>
                         <li>Project-based and work-based learning design for classroom teachers</li>
                         <li>Career readiness frameworks any CTE educator can implement tomorrow</li>
                     </ul>
@@ -159,7 +234,7 @@
                 <div class="service-card">
                     <div class="service-icon">&#128104;&#8205;&#128187;</div>
                     <h3>Curriculum Resources</h3>
-                    <p>Access to the career readiness toolkit, AI-assisted agile framework, and pathway design materials.</p>
+                    <p>Ready-to-use resources built in my own classroom: the career readiness toolkit, the AI-assisted agile framework, and pathway design materials.</p>
                     <ul>
                         <li>Career development prompting guides for professional branding, resume tailoring, and digital portfolios</li>
                         <li>AI-assisted agile project management framework for authentic, process-based assessment</li>
@@ -170,20 +245,18 @@
                 <div class="service-card">
                     <div class="service-icon">&#128200;</div>
                     <h3>Program Consultation</h3>
-                    <p>Strategic support for schools and organizations building or strengthening CS and career readiness programs.</p>
+                    <p>Partnership for schools and organizations building or strengthening CS and career readiness programs.</p>
                     <ul>
-                        <li>Comprehensive CCTE pathway design that connects to the world of work — not just a course sequence</li>
+                        <li>Comprehensive CCTE pathway design that connects to the world of work, not just a course sequence</li>
                         <li>Golden State Pathways implementation guidance for districts navigating new funding and program expectations</li>
-                        <li>Industry mentorship integration and certification planning to ensure students leave pathways career-ready</li>
+                        <li>Bringing industry mentors and certifications into your pathway so students leave career-ready</li>
                     </ul>
                 </div>
-
-                
 
                 <div class="service-card">
                     <div class="service-icon">&#127897;&#65039;</div>
                     <h3>Speaking</h3>
-                    <p>Keynotes and panels on AI in education, equity in CS, and preparing students for the workforce of tomorrow.</p>
+                    <p>Keynotes and panels on digital literacy, AI in education, equity in CS, and preparing students to lead.</p>
                     <ul>
                         <li>Collaborating with AI in the Classroom, SDCOE Career Pathways Conference</li>
                         <li>Building Meaningful Pathways with Industry Mentorship and Certification, SDCOE Golden State Pathways Convening</li>
@@ -219,17 +292,21 @@
 
                 <div class="credential">
                     <h3>Current Roles</h3>
-                    <p><strong></b>Computer Science Educator</strong><br>San Diego Unified School District<br>2020–Present</p>
+                    <p><strong>Computer Science Educator</strong><br>San Diego Unified School District<br>2020–Present</p>
                     <p><strong>Adjunct Faculty CISC</strong><br>San Diego Community College District<br>2023–Present</p>
+                    <p><strong>CCTE Department Chair and ICT Pathway Chair</strong><br>San Diego Unified School District</p>
+                    <p><strong>Elected Board Member</strong><br>Computer Science Teachers Association (CSTA), San Diego</p>
                 </div>
 
                 <div class="credential">
                     <h3>Areas of Expertise</h3>
                     <ul>
+                        <li>Digital &amp; AI Literacy Education</li>
+                        <li>Systems Thinking</li>
+                        <li>Equity &amp; Access in CS and STEM</li>
                         <li>CS Curriculum &amp; Instruction</li>
-                        <li>Program Leadership</li>
+                        <li>Program &amp; Pathway Leadership</li>
                         <li>Teacher Professional Development</li>
-                        <li>Workforce &amp; Adult Learning</li>
                         <li>Educational Technology Integration</li>
                     </ul>
                 </div>
@@ -261,9 +338,9 @@
         <div class="container">
             <p class="eyebrow">Contact</p>
             <h2>Let's talk about what you're building.</h2>
-            <p class="section-intro">I'm currently open to university teaching roles, K–12 curriculum and instruction opportunities, corporate L&amp;D engagements, EdTech and product roles, and consulting work. If any of those sound like you, please reach out!</p>
-            <a href="consulting_contact.html">How can I help you reach your goals?</a>
-            
+            <p class="section-intro">I'd love to hear from school and district leaders, fellow educators, policymakers, families, and edtech teams who believe digital literacy can't wait. I offer workshops, speaking, program consultation, and advisory partnerships, and I'm open to leadership roles where I can help a community get ready for what's next. If that sounds like you, reach out.</p>
+            <a href="consulting_contact.html">Explore how we can work together</a>
+
             <div class="contact-options">
                 <div class="contact-item">
                     <span class="contact-label">Email</span>
@@ -283,7 +360,7 @@
     <footer class="site-footer">
         <div class="container">
             <p>&copy; 2026 Kimberly Morris. All rights reserved. <i>Co Created With Claude AI</i></p>
-            
+
         </div>
     </footer>
 
